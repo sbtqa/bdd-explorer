@@ -1,0 +1,127 @@
+/* Tool Bar */
+#tool-bar {
+    -fx-padding: 2px 2px 3px 2px;
+    -fx-spacing: 0.0em;
+    -fx-background-color: rgb(181, 181, 181), linear-gradient(to bottom, rgb(244, 244, 244) 0%, rgb(240, 240, 240) 60%, rgb(233, 233, 233) 100%);
+    -fx-background-insets: 0px, 0px 0px 1px 0px;
+    -fx-background-radius: 0;
+}
+#tool-bar .button, #tool-bar .toggle-button {
+    -fx-padding: 4px; /* 3 3 3 3 */
+    -fx-background-color: transparent;
+    -fx-background-insets: 0px, 1px;
+    -fx-background-radius: 0px, 0px;
+    -fx-border-color: transparent;
+}
+#tool-bar .button:hover, #tool-bar .toggle-button:hover {
+    -fx-border-color: rgba(0, 0, 0, .15);
+    -fx-background-color: rgba(0, 0, 0, .05);
+}
+#tool-bar .button:pressed, #tool-bar .toggle-button:pressed {
+    -fx-border-color: rgba(0, 0, 0, .15);
+    -fx-background-color: rgba(0, 0, 0, .1);
+}
+#tool-bar .toggle-button:selected {
+    -fx-border-color: rgba(0, 0, 0, .15);
+    -fx-background-color: rgba(0, 0, 0, .075);
+}
+
+#search-field {
+    -fx-padding: 5px 5px 4px 5px;
+    -fx-background-insets: 0px, 1px;
+    -fx-background-radius: 4px, 3px;
+}
+
+#tool-bar .separator {
+    -fx-padding: 0px 1px 0px 3px;
+}
+
+/* Split Pane */
+.split-pane {
+    -fx-padding: 0px;
+}
+
+/* Grid Pane */
+#help-pane {
+    -fx-padding: 5px;
+    -fx-background-color: rgb(181, 181, 181), rgb(244, 244, 244);
+    -fx-background-insets: 0px, 0px 0px 0px 1px;
+    -fx-background-radius: 0;
+}
+
+/* Status Bar */
+#status-bar {
+    -fx-padding: 2px 4px;
+    -fx-background-color: rgb(181, 181, 181), rgb(244, 244, 244);
+    -fx-background-insets: 0px, 1px 0px 0px 0px;
+}
+
+
+.list-view,
+.tree-view,
+.table-view,
+.tree-table-view,
+.list-view:focused,
+.tree-view:focused,
+.table-view:focused,
+.tree-table-view:focused {
+    -fx-padding: 0px;
+    -fx-background-color: rgb(255, 255, 255);
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+
+.list-cell:filled:selected,
+.tree-cell:filled:selected,
+.table-row-cell:filled:selected,
+.tree-table-row-cell:filled:selected,
+.table-row-cell:filled > .table-cell:selected,
+.tree-table-row-cell:filled > .tree-table-cell:selected {
+    /*-fx-background: rgb(220, 220, 220), rgb(250, 250, 250);*/
+    -fx-background: rgb(220, 220, 220), rgb(255, 255, 255);
+    -fx-background-insets: 0px, 1px;
+
+    /*-fx-background-insets: 0px, 1px;*/
+    -fx-table-cell-border-color: rgb(255, 255, 255);
+}
+
+#element-property-key-label {
+    -fx-padding: 2px 0px 0px 5px;
+    -fx-text-fill: rgb(75, 75, 75);
+    -fx-font-size: 1.1em;
+    -fx-font-weight: bold;
+}
+#element-property-value-text-field {
+    -fx-padding: 2px 0px 0px 10px;
+    -fx-background-color: transparent;
+    -fx-background-insets: 0px;
+    -fx-background-radius: 0px;
+    -fx-cursor: text;
+    -fx-text-fill: rgb(0, 0, 0);
+    -fx-font-size: 1.1em;
+    -fx-font-weight: bold;
+}
+
+#element-name-label {
+    -fx-padding: 0px 0px 0px 3px;
+    -fx-text-fill: rgb(0, 0, 0);
+    -fx-font-size: 1em;
+}
+#element-class-label {
+    -fx-padding: 0px 0px 0px 3px;
+    -fx-text-fill: rgb(200, 100, 0);
+    -fx-font-size: 1em;
+}
+
+#page-name-label {
+    -fx-padding: 0px 0px 0px 3px;
+    -fx-text-fill: rgb(0, 0, 0);
+    -fx-font-size: 1em;
+}
+#page-class-label {
+    -fx-padding: 0px 0px 0px 3px;
+    -fx-text-fill: rgb(100, 100, 100);
+    -fx-font-size: 1em;
+}
+

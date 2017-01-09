@@ -1,0 +1,9 @@
+# Ignored dirs
+.idea/
+target/
+
+# Ignored files
+.gitignore
+bddexplorer.conf
+bddexplorer.iml
+bddexplorer.log

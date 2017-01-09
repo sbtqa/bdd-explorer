@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>${file.level:-ALL}</level>
+        </filter>
+        <file>bddexplorer.log</file>
+        <encoder>
+            <pattern>%d{[dd.MM.yyyy] HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="ru.sbt.qa.dcb.bddexplorer" level="${logging.level:-DEBUG}" additivity="false">
+        <appender-ref ref="FILE" />
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <root level="${root.level:-DEBUG}">
+        <appender-ref ref="STDOUT" />
+    </root>
+
+</configuration>
+
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+<!-- ERROR - means that the execution of some task could not be completed; an email couldn't be sent, a page couldn't   -->
+<!--         be rendered, some data couldn't be stored to a database, something like that. Something has definitively   -->
+<!--         gone wrong.                                                                                                -->
+<!-- WARN  - means that something unexpected happened, but that execution can continue, perhaps in a degraded mode;     -->
+<!--         a configuration file was missing but defaults were used, a price was calculated as negative, so it was     -->
+<!--         clamped to zero, etc. Something is not right, but it hasn't gone properly wrong yet - warnings are often   -->
+<!--         a sign that there will be an error very soon.                                                              -->
+<!-- INFO  - means that something normal but significant happened; the system started, the system stopped, the daily    -->
+<!--         inventory update job ran, etc. There shouldn't be a continual torrent of these, otherwise there's just     -->
+<!--         too much to read.                                                                                          -->
+<!-- DEBUG - means that something normal and insignificant happened; a new user came to the site, a page was rendered,  -->
+<!--         an order was taken, a price was updated. This is the stuff excluded from info because there would be too   -->
+<!--         much of it.                                                                                                -->
+<!-- TRACE - is something i have never actually used.                                                                   -->
+<!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
