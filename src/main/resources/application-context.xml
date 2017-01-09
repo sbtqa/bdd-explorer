@@ -6,11 +6,11 @@
                            http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
        default-lazy-init="false">
 
-    <context:component-scan base-package="ru.sbt.qa.dcb.bddexplorer" />
+    <context:component-scan base-package="ru.sbtqa.tag.columbo" />
 
     <bean id="jaxbMarshaller"
           class="org.springframework.oxm.jaxb.Jaxb2Marshaller">
-        <property name="packagesToScan" value="ru.sbt.qa.dcb.bddexplorer" />
+        <property name="packagesToScan" value="ru.sbtqa.tag.columbo" />
         <property name="marshallerProperties">
             <map>
                 <entry key="jaxb.formatted.output">

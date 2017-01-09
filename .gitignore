@@ -4,6 +4,6 @@ target/
 
 # Ignored files
 .gitignore
-bddexplorer.conf
-bddexplorer.iml
-bddexplorer.log
+columbo.conf
+columbo.iml
+columbo.log

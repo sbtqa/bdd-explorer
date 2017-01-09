@@ -5,7 +5,7 @@
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
             <level>${file.level:-ALL}</level>
         </filter>
-        <file>bddexplorer.log</file>
+        <file>columbo.log</file>
         <encoder>
             <pattern>%d{[dd.MM.yyyy] HH:mm:ss.SSS} [%thread] %-5level %logger{50} - %msg%n</pattern>
         </encoder>

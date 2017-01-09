@@ -1,27 +1,19 @@
-**BDD Explorer**
+**Columbo**
 ================
 
-**Краткое описание:**
+**Description**
 
-Приложение предназначено для работы с проектом автотестов на основе фреймворков:
- - selenium web driver;
- - bdd-фреймворк;
- - yandex.html-elements;
- 
-За объект PageObject принимаются все наследники класса `ru.sbt.qa.bdd.pageFactory.Page.class`
+The application is designed for projects with autotests that use frameworks:
+ selenium web driver, bdd-framework, yandex html-elements;
 
-Приложение работает со скомпилированными файлами проекта. Рекомендуется указывать рабочую папку проекта,
- которой для IDE Intellij Idea будет: `target/classes`.
+Basic class for Page (PageObject): `ru.sbt.qa.bdd.pageFactory.Page.class`
 
-Указать рабочую папку проекта нужно с помощью кнопки  _+_.
+The application works with compiled classes. For example `target/classes` if you use Intellij idea.
 
-После изменения файлов проекта необходимо обновить файлы в приложени с помощью кнопки _Refresh_.
+The application automatically saves its settings and condition.
 
-Приложение автоматически сохраняет свои настройки и состояние в файле `bddexplorer.conf`. 
-
-**Расширение приложения:**
- - Добавить просмотр фич (какие страницы/элементы/sql используются)
- - Добавить просмотр SQL-запросов и процедур
- - Для страниц, элементов, sql сделать вывод: "Используется в фичах"
- - Для элементов и sql сделать справа элемент "[x]", где x-количество использований
- - Общая статистика проекта (количество фич, sql, страниц и т.п.)
+**Improvements**
+ - Add toggle button "View with inheritance"
+ - Add feature info (used pages, elements, sql)
+ - Add usages for each element (used in features)
+ - Add common project statistics
