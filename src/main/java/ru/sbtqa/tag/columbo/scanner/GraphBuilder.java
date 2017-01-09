@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
-import ru.sbt.qa.bdd.pageFactory.Page;
+import ru.sbtqa.tag.pagefactory.Page;
 import ru.sbtqa.tag.columbo.panes.MainToolBar;
 import ru.sbtqa.tag.columbo.panes.PageDetailsPane;
 import ru.sbtqa.tag.columbo.panes.treecomponents.ElementTreeItemView;
