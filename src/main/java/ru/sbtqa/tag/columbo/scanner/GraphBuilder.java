@@ -8,7 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
-import ru.sbtqa.tag.pagefactory.Page;
+import ru.sbt.qa.bdd.pageFactory.Page;
 import ru.sbtqa.tag.columbo.panes.MainToolBar;
 import ru.sbtqa.tag.columbo.panes.PageDetailsPane;
 import ru.sbtqa.tag.columbo.panes.treecomponents.ElementTreeItemView;
@@ -360,7 +360,7 @@ public class GraphBuilder {
         TreeItem<ElementTreeItemView> searchItem = null;
         if ( elementTypeCheck(parentNode) ) {
             searchItem = new TreeItem<>(parentNode.getValue());
-            openRootNode(searchItem);
+            openRootElementNodes(searchItem);
             for ( TreeItem<ElementTreeItemView> childItem : parentNode.getChildren() ) {
                 TreeItem<ElementTreeItemView> searchChildItem = elementTypeFilter(childItem);
                 if ( searchChildItem != null ) {
@@ -406,16 +406,65 @@ public class GraphBuilder {
         return result;
     }
 
+    // Expand / Collapse Node
+
     /**
      * Open root element (page, folder) in filtered tree
      * @param node - checked node
      */
-    private void openRootNode(TreeItem<ElementTreeItemView> node) {
+    private void openRootElementNodes(TreeItem<ElementTreeItemView> node) {
         switch (node.getValue().getTreeItemType()) {
             case PAGE:
             case ABSTRACT_PAGE:
             case FOLDER: { node.setExpanded(true); break; }
         }
+    }
+
+    public void expandElementSubtree(ElementTreeItemView view) {
+        TreeItem<ElementTreeItemView> expandedNode = findElementsNode(pageDetailsPane.getRootTreeItem(), view);
+        if (expandedNode != null) {
+            expandElementsNode(expandedNode);
+        }
+    }
+
+    public void collapseElementSubtree(ElementTreeItemView view) {
+        TreeItem<ElementTreeItemView> collapsedNode = findElementsNode(pageDetailsPane.getRootTreeItem(), view);
+        if (collapsedNode != null) {
+            collapseElementsNode(collapsedNode);
+        }
+    }
+
+    private TreeItem<ElementTreeItemView> findElementsNode(TreeItem<ElementTreeItemView> node, ElementTreeItemView view) {
+        if (node.getValue() == view) {
+            return node;
+        }
+        if (node.getChildren().size() > 0) {
+            for (TreeItem<ElementTreeItemView> childNode : node.getChildren()) {
+                TreeItem<ElementTreeItemView> result = findElementsNode(childNode, view);
+                if (result != null) {
+                    return result;
+                }
+            }
+        }
+        return null;
+    }
+
+    private void expandElementsNode(TreeItem<?> node) {
+        if (node.getChildren().size() > 0) {
+            for (TreeItem<?> childNode : node.getChildren()) {
+                expandElementsNode(childNode);
+            }
+        }
+        node.setExpanded(true);
+    }
+
+    private void collapseElementsNode(TreeItem<?> node) {
+        if (node.getChildren().size() > 0) {
+            for (TreeItem<?> childNode : node.getChildren()) {
+                collapseElementsNode(childNode);
+            }
+        }
+        node.setExpanded(false);
     }
 
 }

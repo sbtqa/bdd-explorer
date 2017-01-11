@@ -70,7 +70,7 @@ public class ProjectScanner {
         this.srcFolder = srcFolder;
         log.info("Scanning sources from " + srcFolder.getAbsolutePath());
         if ( srcFolder.isDirectory() && srcFolder.exists() ) {
-            this.srcFolderPath = srcFolder.getAbsolutePath().replaceAll("\\\\", ".").concat(".");
+            this.srcFolderPath = srcFolder.getAbsolutePath().replaceAll("\\\\", ".").replaceAll("/",".").concat(".");
         }
         loadedClasses = new ArrayList<>();
         initClassLoader();
@@ -95,7 +95,7 @@ public class ProjectScanner {
                 if ( file.isDirectory() ) {
                     scanDirectory(file);
                 } else {
-                    String className = file.getAbsolutePath().replaceAll("\\\\", ".").replaceAll(srcFolderPath, "").replaceAll(".class", "");
+                    String className = file.getAbsolutePath().replaceAll("\\\\", ".").replaceAll("/",".").replaceAll(srcFolderPath, "").replaceAll(".class", "");
                     try {
                         Class<?> clazz = classLoader.loadClass(className);
                         if (clazz != null) {

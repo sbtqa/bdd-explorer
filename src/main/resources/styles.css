@@ -80,22 +80,22 @@
 }
 
 /* Tree items */
-#page-name-label {
+#page-name {
     -fx-padding: 0px 0px 0px 3px;
     -fx-text-fill: rgb(0, 0, 0);
     -fx-font-size: 1em;
 }
-#page-class-label {
+#page-class {
     -fx-padding: 0px 0px 0px 3px;
     -fx-text-fill: rgb(100, 100, 100);
     -fx-font-size: 1em;
 }
-#element-name-label {
+#element-name {
     -fx-padding: 0px 0px 0px 3px;
     -fx-text-fill: rgb(0, 0, 0);
     -fx-font-size: 1em;
 }
-#element-class-label {
+#element-class {
     -fx-padding: 0px 0px 0px 3px;
     -fx-text-fill: rgb(200, 100, 0);
     -fx-font-size: 1em;

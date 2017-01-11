@@ -3,10 +3,11 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>ru.sbtqa.tag</groupId>
   <artifactId>columbo</artifactId>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>columbo</name>
-  <description>Sergey, place project description here</description>
+  <description>Columbo is application which designed for automation test projects designed on top of:
+    Selenium WebDriver, Test Automation Gears or Yandex HTML-Elements</description>
   <url>http://github.com/sbtqa/columbo</url>
   <licenses>
     <license>
@@ -17,7 +18,7 @@
   <developers>
     <developer>
       <name>Sergey Razuvaev</name>
-      <email>Sergey, place your personal email here</email>
+      <email>svrazuvaev@yandex.ru</email>
       <organization>sbtqa</organization>
       <organizationUrl>http://github.com/sbtqa</organizationUrl>
     </developer>
@@ -35,10 +36,15 @@
     <spring-version>4.3.5.RELEASE</spring-version>
   </properties>
   <dependencies>
+    <!--<dependency>-->
+      <!--<groupId>ru.sbtqa.tag</groupId>-->
+      <!--<artifactId>page-factory</artifactId>-->
+      <!--<version>1.0.0</version>-->
+    <!--</dependency>-->
     <dependency>
-      <groupId>ru.sbtqa.tag</groupId>
-      <artifactId>page-factory</artifactId>
-      <version>1.0.1-SNAPSHOT</version>
+      <groupId>ru.sbt.qa</groupId>
+      <artifactId>sbt-bdd-framework</artifactId>
+      <version>2.8-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>

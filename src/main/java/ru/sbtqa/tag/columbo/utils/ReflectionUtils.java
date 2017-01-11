@@ -3,8 +3,8 @@ package ru.sbtqa.tag.columbo.utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.pagefactory.Annotations;
-import ru.sbtqa.tag.pagefactory.Page;
-import ru.sbtqa.tag.pagefactory.annotations.*;
+import ru.sbt.qa.bdd.pageFactory.*;
+
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

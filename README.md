@@ -12,7 +12,12 @@ The Columbo works with compiled project classes. For example `target/classes` in
 Columbo is automatically saves its settings and condition.
 
 **Future Improvements**
+ - Change label from tree item to disabled text field.
+ - Add context menu on tree item elements for "fast-copy @ElementTitle" and "expand subTree" 
  - Add toggle button "View with inheritance"
+ - Add hotkeys
+ - Add dependency management at runtime, to choose desired versions from drop-down
+ - Use project source files instead compiled classes
  - Add feature info (used pages, elements, sql)
  - Add usages for each element (used in features)
  - Add common project statistics

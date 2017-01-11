@@ -1,6 +1,10 @@
 package ru.sbtqa.tag.columbo.panes.treecomponents.factories;
 
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TreeItem;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import org.springframework.stereotype.Component;
 import ru.sbtqa.tag.columbo.panes.treecomponents.PageTreeItemView;
 import ru.sbtqa.tag.columbo.panes.treecomponents.TreeItemType;

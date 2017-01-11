@@ -25,6 +25,7 @@ public class PageTreePane extends ScrollPane {
 
     @Autowired private ConfigurationManager configurationManager;
     @Autowired private GraphBuilder graphBuilder;
+    @Autowired private HotKeyPane hotKeyPane;
 
     private TreeView pageTree;
     private TreeItem mainRoot;
@@ -39,10 +40,13 @@ public class PageTreePane extends ScrollPane {
         pageTree.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         pageTree.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> {
-                    if (newValue != null && ((TreeItem<PageTreeItemView>) newValue).getValue().getInfoHolder() != null ) {
-                        graphBuilder.buildElementsTree(((TreeItem<PageTreeItemView>) newValue).getValue().getInfoHolder().getElementClass());
-                        if (pageTree.getRoot() == mainRoot) {
-                            configurationManager.setProperty("active_page_class", ((TreeItem<PageTreeItemView>) newValue).getValue().getInfoHolder().getElementClass().getName());
+                    if (newValue != null) {
+                        hotKeyPane.setLastSelectedNode( (TreeItem<PageTreeItemView>) newValue );
+                        if ( ((TreeItem<PageTreeItemView>) newValue).getValue().getInfoHolder() != null ) {
+                            graphBuilder.buildElementsTree(((TreeItem<PageTreeItemView>) newValue).getValue().getInfoHolder().getElementClass());
+                            if (pageTree.getRoot() == mainRoot) {
+                                configurationManager.setProperty("active_page_class", ((TreeItem<PageTreeItemView>) newValue).getValue().getInfoHolder().getElementClass().getName());
+                            }
                         }
                     }
                 }

@@ -29,12 +29,12 @@ public class Launch extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        this.primaryStage = primaryStage;
+        Launch.primaryStage = primaryStage;
         rootPane = Ctx.get().getBean(RootPane.class);
         Scene scene = new Scene(rootPane, rootPane.getWidth(), rootPane.getHeight());
         scene.getStylesheets().add("styles.css");
         primaryStage.getIcons().add(Ctx.get().getBean(ImageManager.class).getImage("logo.png"));
-        primaryStage.setTitle("Columbo [1.0.0 Beta]");
+        primaryStage.setTitle("Columbo [1.0.1]");
         primaryStage.setScene(scene);
         primaryStage.show();
 
@@ -48,7 +48,7 @@ public class Launch extends Application {
     }
 
     public static Stage getPrimaryStage() {
-        return primaryStage;
+        return Launch.primaryStage;
     }
 
 }

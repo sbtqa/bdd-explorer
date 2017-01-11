@@ -20,6 +20,7 @@ public class RootPane extends BorderPane {
     private static final Logger log = LoggerFactory.getLogger(BorderPane.class);
 
     @Autowired private ConfigurationManager configurationManager;
+    @Autowired private HotKeyPane hotKeyPane;
     @Autowired private MainToolBar mainToolBar;
     @Autowired private PageTreePane pageTreePane;
     @Autowired private PageDetailsPane pageDetailsPane;
@@ -38,6 +39,7 @@ public class RootPane extends BorderPane {
                 }
         );
         splitPane.setDividerPosition(0,getGuiProperty(GUI_PROPERTY.DIVIDER_POSITION));
+        this.setLeft(hotKeyPane);
         this.setTop(mainToolBar);
         this.setCenter(splitPane);
         this.setBottom(statusBar);

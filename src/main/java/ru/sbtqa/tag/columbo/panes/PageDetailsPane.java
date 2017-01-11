@@ -30,6 +30,7 @@ public class PageDetailsPane extends SplitPane {
     @Autowired private ElementPropertiesPane elementPropertiesPane;
     @Autowired private GraphBuilder graphBuilder;
     @Autowired private MainToolBar mainToolBar;
+    @Autowired private HotKeyPane hotKeyPane;
 
     private ScrollPane topScrollPane;
     private ScrollPane bottomScrollPane;
@@ -43,11 +44,14 @@ public class PageDetailsPane extends SplitPane {
         pageElementsPane.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> {
                     TreeItem<ElementTreeItemView> selectedItem = ((TreeItem<ElementTreeItemView>) newValue);
-                    if ( selectedItem != null && selectedItem.getValue().getInfoHolder() != null ) {
-                        Map<String, String> fieldProperties = ReflectionUtils.extractPropertiesFromField( ((TreeItem<ElementTreeItemView>) newValue).getValue().getInfoHolder().getElementField() );
-                        elementPropertiesPane.setProperties(fieldProperties);
-                    } else {
-                        elementPropertiesPane.setProperties(null);
+                    if ( selectedItem != null ) {
+                        hotKeyPane.setLastSelectedNode( (TreeItem<ElementTreeItemView>) newValue );
+                        if ( selectedItem.getValue().getInfoHolder() != null ) {
+                            Map<String, String> fieldProperties = ReflectionUtils.extractPropertiesFromField( ((TreeItem<ElementTreeItemView>) newValue).getValue().getInfoHolder().getElementField() );
+                            elementPropertiesPane.setProperties(fieldProperties);
+                        } else {
+                            elementPropertiesPane.setProperties(null);
+                        }
                     }
                 }
         );
@@ -74,6 +78,11 @@ public class PageDetailsPane extends SplitPane {
     public void setRootTreeItem(TreeItem<ElementTreeItemView> root) {
         this.root = root;
         filterRootTreeItem();
+    }
+
+    @SuppressWarnings("unchecked")
+    public TreeItem<ElementTreeItemView> getRootTreeItem() {
+        return this.pageElementsPane.getRoot();
     }
 
     @SuppressWarnings("unchecked")

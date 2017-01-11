@@ -15,11 +15,11 @@ public class PageTreeItemView extends AbstractTreeItemView {
         super(treeItemType, name, info);
         this.infoHolder = infoHolder;
         if (getName() != null) {
-            this.getName().setId("page-name-label");
+            this.getName().setId("page-name");
             this.setInfo(null);
         }
         if (getInfo() != null) {
-            this.getInfo().setId("page-class-label");
+            this.getInfo().setId("page-class");
         }
     }
 
