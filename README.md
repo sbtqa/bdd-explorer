@@ -3,16 +3,15 @@
 
 **Description**
 
-The application is designed for projects with autotests that use frameworks:
- selenium web driver, bdd-framework, yandex html-elements;
+Columbo is application which designed for automation test projects designed on top of:
+ Selenium WebDriver, Test Automation Gears or Yandex HTML-Elements;
 
-Basic class for Page (PageObject): `ru.sbt.qa.bdd.pageFactory.Page.class`
+All page objects should extends of [ru.sbtqa.tag.pagefactory.Page.class](https://github.com/sbtqa/page-factory/blob/master/src/main/java/ru/sbtqa/tag/pagefactory/Page.java)
 
-The application works with compiled classes. For example `target/classes` if you use Intellij idea.
+The Columbo works with compiled project classes. For example `target/classes` in case you use maven.
+Columbo is automatically saves its settings and condition.
 
-The application automatically saves its settings and condition.
-
-**Improvements**
+**Future Improvements**
  - Add toggle button "View with inheritance"
  - Add feature info (used pages, elements, sql)
  - Add usages for each element (used in features)

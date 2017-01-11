@@ -1,0 +1,19 @@
+language: java
+addons:
+  sonarqube: true
+jdk:
+  - oraclejdk8
+install:
+  - mvn clean install
+script:
+  - mvn org.jacoco:jacoco-maven-plugin:prepare-agent sonar:sonar -Dsonar.login=$SONAR_TOKEN
+notifications:
+  email: false
+  slack:
+    rooms:
+      - secure: WQvo/fyTxIzZIzuGf8lZwyNESQ9ASWV266ckRemYKf/4LCMTF1h+PWbukYpRh2lWHqTYsEl2PZ2VxqBoBsgNKV1BYrVqR5T11ULVcV5yx4QbHSomFaDmDW7O5hfa1vkPl7LsFPLbdiWbTK0GS4qS97ZGE/w2H66k7DVbqYKgY0+n1u18BIUB2OrLFAR87msjf1oSmTg9Kn4Dk9lveXQvEzmdJ5T6ThJobuDVijOto85N1S+pKfLAMIfsQyB81PKc+4jJqPJoIoq1WUQ9HRjVCOxrSH4qLyCIuU99R2XF+eNiWI33R6jh9xkjOHdsZNkbQau1PB6649b5auxOr1oAT8M6REDwMANXLtrU1gLhKVzNurCgw1QFZt5Icvv530vRo1d9vVszRKessw0Qhg3B1CLxvBkzjYAxuaIfJ/yoA/b8nj3CVlw7y3FGkrWP6QY0MOMPtKyyQw8GH7ArOrvUvxfWUWQe/XkmULw+ExiqL7J57ltMKsMz4+LQ43uCGDoQDdBSseZhxPWKygHeqvPTo+8y7fVbg7By3WmxwwhXwonm1eNvtAsV+kX68vvtx9R0jCJ/me4K3VYfbMClk/KQEUgJ1qsxTqXRNkxQEip2IBJoZU7Rw8kUGszDM+uATRhFKzQrlxHnfjXlEleUu4yHBevv2z2vHfYy7CCguEt9h8U=
+    template:
+      - "Build status: %{message}"
+      - "%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{commit_message}"
+      - "Change view : %{compare_url}"
+      - "Build details : %{build_url}"
